@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "935f4131-f4a3-463a-aa28-02af03d199e3",
+		"name": "OM30 - Consolidação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "buscar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/app/public/api/v1/municipes/buscar?nome=joao&registro_principal=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"public",
+						"api",
+						"v1",
+						"municipes",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "codigo_cns",
+							"value": "XXX",
+							"description": "integer",
+							"disabled": true
+						},
+						{
+							"key": "cpf_numero",
+							"value": "xxx",
+							"description": "string",
+							"disabled": true
+						},
+						{
+							"key": "nome",
+							"value": "joao",
+							"description": "string"
+						},
+						{
+							"key": "registro_principal",
+							"value": "3",
+							"description": "boolean"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "municipes/{id}/buscar-duplicados",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/app/public/api/v1/municipes/11/buscar-duplicados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"public",
+						"api",
+						"v1",
+						"municipes",
+						"11",
+						"buscar-duplicados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "municipes/pode-ser-cadastro-principal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"validacao\" : 3,\n    \"municipe\" : {\n        \"nome\" : \"jose\",\n        \"data_nascimento\" : \"2023-05-09\",\n        \"sexo_id\" : \"1\",\n        \"nome_pai\" : \"vanderley\",\n        \"nome_mae\" : \"maria\",\n        \"nacionalidade_id\" : \"1\",\n        \"nascimento_estado_id\" : \"1\",\n        \"nascimento_municipio_id\" : \"1\",\n        \"telefone_celular\" : \"123\",\n        \"residencia_cep\" : \"17400\",\n        \"residencia_numero\" : \"456\",\n        \"tipo_logradouro_id\" : \"1\",\n        \"nome_responsavel\" : \" \",\n        \"residencia_logradouro\" : \"guaranta\",\n        \"residencia_bairro\" : \"eucaliptos\",\n        \"raca_cor_id\" : \"1\",\n        \"unidade_saude_referencia_id\" : \"1\",\n        \"profissional_equipe_id\" : \"1\",\n        \"codigo_cns\" : \"1\",\n        \"cpf_numero\" : \"1\",\n        \"ocupacao_id\" : \"1\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/public/api/v1/municipes/pode-ser-cadastro-principal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"public",
+						"api",
+						"v1",
+						"municipes",
+						"pode-ser-cadastro-principal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "municipes/{id}/pode-ser-cadastro-principal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/public/api/v1/municipes/-1/pode-ser-cadastro-principal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"public",
+						"api",
+						"v1",
+						"municipes",
+						"-1",
+						"pode-ser-cadastro-principal"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search/cns/{number}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/app/public/api/v1/search/cns/1111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"public",
+						"api",
+						"v1",
+						"search",
+						"cns",
+						"1111"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "processamento/manual/{id}",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/public/api/v1/processamento/manual/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"public",
+						"api",
+						"v1",
+						"processamento",
+						"manual",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "processamento/automatico",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Bearer",
+						"value": "{{TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/app/public/api/v1/processamento/automatico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"public",
+						"api",
+						"v1",
+						"processamento",
+						"automatico"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

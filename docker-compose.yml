@@ -1,0 +1,54 @@
+version: '3.8'
+services:
+    laravel-app:
+        container_name: laravel-app
+        build:
+            context: ../../
+            dockerfile: ./images/php/Dockerfile
+            args:
+                - app_folder=laravel
+        depends_on:
+            - laravel-mysql
+        links:
+            - laravel-mysql
+        ports:
+            - "8080:80"
+        networks:
+            - laravel-app-network
+        volumes:
+            - type: bind
+              source: ./
+              target: /var/www/html
+            - ../../templates/apache/default.conf:/etc/apache2/sites-enabled/default.conf
+    laravel-mysql:
+        platform: linux/x86_64
+        container_name: laravel-mysql
+        image: mysql
+        restart: always
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+        ports:
+            - "3306:3306"
+        networks:
+            - laravel-app-network
+            - laravel-database-network
+        volumes:
+            - ./storage/mysql:/var/lib/mysql
+    laravel-phpmyadmin:
+        container_name: laravel-phpmyadmin
+        image: phpmyadmin
+        ports:
+            - "3305:80"
+        restart: always
+        environment:
+            PMA_HOST: laravel-mysql
+            PMA_PASSWORD: ""
+        depends_on:
+            - laravel-mysql
+        networks:
+            - laravel-database-network
+volumes:
+    source:
+networks:
+  laravel-app-network:
+  laravel-database-network:
